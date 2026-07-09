@@ -1,0 +1,17 @@
+{
+  "servers": {
+    "github": {
+      "command": ["npx", "-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_TOKEN": "your-github-token-here"
+      },
+      "enabled": false
+    },
+    "filesystem": {
+      "command": ["npx", "-y", "@modelcontextprotocol/server-filesystem", "./"],
+      "env": {},
+      "enabled": false
+    }
+  },
+  "auto_connect": false
+}
