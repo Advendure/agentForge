@@ -15,6 +15,7 @@ def trigger_hooks(event: str, *args):
             return result
     return None
 
+
 DENY_LIST = ["rm -rf /", "sudo", "shutdown", "reboot", "mkfs", "dd if="]
 DESTRUCTIVE = ["rm ", "> /etc/", "chmod 777"]
 
@@ -52,14 +53,14 @@ def log_hook(block):
 
 def large_output_hook(block, output):
     if len(str(output)) > 100000:
-        print(f"\033[33m[HOOK] large output from {block.name}: "
+        print(f"\n\033[33m[HOOK] large output from {block.name}: "
               f"{len(str(output))} chars\033[0m")
     return None
 
 
 def user_prompt_hook(query: str):
     from src.config import WORKDIR
-    print(f"\033[90m[HOOK] UserPromptSubmit: {WORKDIR}\033[0m")
+    print(f"\n\033[90m[HOOK] UserPromptSubmit: {WORKDIR}\033[0m")
     return None
 
 
@@ -71,8 +72,9 @@ def stop_hook(messages: list):
             tool_count += sum(1 for item in content
                               if isinstance(item, dict)
                               and item.get("type") == "tool_result")
-    print(f"\033[90m[HOOK] Stop: {tool_count} tool result(s)\033[0m")
+    print(f"\n\033[90m[HOOK] Stop: {tool_count} tool result(s)\033[0m")
     return None
+
 
 register_hook("UserPromptSubmit", user_prompt_hook)
 register_hook("PreToolUse", permission_hook)
