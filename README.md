@@ -1,4 +1,4 @@
-# agentForge
+# agentForge-Autonomous AI Coding Assistant
 
 一个功能完整的 AI Coding Agent 框架，包含工具分发、权限边界、hooks 扩展点、任务系统、技能加载、记忆管理、上下文压缩、错误恢复、后台任务、cron 调度、团队协作、worktree 隔离和 MCP 外部工具接入等核心功能。
 
